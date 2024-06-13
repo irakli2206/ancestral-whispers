@@ -41,7 +41,7 @@ const Hero = () => {
                 </header>
 
                 <main className="flex gap-4">
-                    <Button variant={'outline'} size='lg' className='rounded-full px-10 hover:shadow-inner-button transition hover:bg-background' >Get In Touch </Button>
+                    <Button variant={'outline'} size='lg' className='rounded-full px-10 hover:shadow-inner-button transition hover:bg-background hover:border-zinc-700' >Get In Touch </Button>
                     <Button variant={'link'} size='lg' className='rounded-full gap-2 text-muted-foreground hover:text-primary transition !no-underline group ' >Explore <CgArrowLongRight size={20} className='group-hover:text-primary group-hover:translate-x-1 transition-transform ' /></Button>
                 </main>
 
