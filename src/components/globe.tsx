@@ -1,7 +1,8 @@
 "use client";
 import { Ref, useEffect, useRef, useState } from "react";
-import { OrbitControls } from "@react-three/drei";
+import { OrbitControls, useTexture } from "@react-three/drei";
 import countries from "@/data/globe.json";
+import land from "@/data/World_elevation_map.png";
 import { Canvas, MeshProps, createRoot, useFrame, Vector3 } from '@react-three/fiber'
 import { Mesh, Points } from "three";
 import * as THREE from 'three';
@@ -43,6 +44,7 @@ const Sphere = (props: any) => {
         const offset = 2 / samples;
         const increment = Math.PI * (3 - Math.sqrt(5));
 
+ 
         for (let i = 0; i < samples; i++) {
             const y = i * offset - 1 + (offset / 2);
             const r = Math.sqrt(1 - y * y);
@@ -65,6 +67,9 @@ const Sphere = (props: any) => {
         }
     }, []);
 
+    const texture = useTexture(land); // Adjust the path
+
+
     console.log(pointsRef)
 
     return (
@@ -77,7 +82,7 @@ const Sphere = (props: any) => {
 
             >
                 <sphereGeometry args={[3, 64, 32]} />
-                <meshStandardMaterial color='#4f46e5' />
+                <meshStandardMaterial color='#4f46e5' map={texture} />
             </mesh>
             <points ref={pointsRef} >
                 <bufferGeometry />
