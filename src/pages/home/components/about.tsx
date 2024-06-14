@@ -399,7 +399,7 @@ const About = () => {
 
             </header>
 
-            <div className="h-[400px] w-full relative overflow-hidden ">
+            <div className="h-[400px] w-full relative  overflow-hidden ">
                 <div className="z-[9999] absolute h-full w-full top-0 left-0 bg-gradient-to-b from-transparent from-50%   to-background-black"></div>
 
                 <main className="h-[800px] w-full">

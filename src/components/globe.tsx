@@ -2,10 +2,11 @@
 import { Ref, useEffect, useRef, useState } from "react";
 import { OrbitControls, useTexture } from "@react-three/drei";
 import countries from "@/data/globe.json";
-import land from "@/data/World_elevation_map.png";
+import land from "@/data/map.png";
 import { Canvas, MeshProps, createRoot, useFrame, Vector3 } from '@react-three/fiber'
 import { Mesh, Points } from "three";
 import * as THREE from 'three';
+import { MeshBVH, computeBoundsTree, disposeBoundsTree, acceleratedRaycast } from 'three-mesh-bvh';
 
 
 
@@ -40,21 +41,29 @@ const Sphere = (props: any) => {
     })
 
     const generateFibonacciSpherePoints = (samples: number, radius: number) => {
-        const points = [];
-        const offset = 2 / samples;
-        const increment = Math.PI * (3 - Math.sqrt(5));
+        if (meshRef.current && pointsRef.current) {
+            const points = [];
+            const offset = 2 / samples;
+            const increment = Math.PI * (3 - Math.sqrt(5));
 
+
+            for (let i = 0; i < samples; i++) {
+                const y = i * offset - 1 + (offset / 2);
+                const r = Math.sqrt(1 - y * y);
+                const phi = i * increment;
+
+                const x = Math.cos(phi) * r * radius;
+                const z = Math.sin(phi) * r * radius;
+
+                const point = new THREE.Vector3(x, y * radius, z)
  
-        for (let i = 0; i < samples; i++) {
-            const y = i * offset - 1 + (offset / 2);
-            const r = Math.sqrt(1 - y * y);
-            const phi = i * increment;
+                
+                points.push(point);
 
-            const x = Math.cos(phi) * r * radius;
-            const z = Math.sin(phi) * r * radius;
-            points.push(new THREE.Vector3(x, y * radius, z));
+            }
+            return points;
         }
-        return points;
+
     };
 
     useEffect(() => {
@@ -67,8 +76,7 @@ const Sphere = (props: any) => {
         }
     }, []);
 
-    const texture = useTexture(land); // Adjust the path
-
+    const texture = useTexture(land);
 
     console.log(pointsRef)
 
@@ -82,11 +90,14 @@ const Sphere = (props: any) => {
 
             >
                 <sphereGeometry args={[3, 64, 32]} />
-                <meshStandardMaterial color='#4f46e5' map={texture} />
+                <meshStandardMaterial 
+                color='black' 
+                // map={texture}
+                 />
             </mesh>
             <points ref={pointsRef} >
                 <bufferGeometry />
-                <pointsMaterial color='#ffffff' size={0.01} depthTest={false} />
+                <pointsMaterial  size={0.01} depthTest={false} />
             </points>
         </>
     );
