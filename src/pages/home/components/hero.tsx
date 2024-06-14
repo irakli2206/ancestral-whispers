@@ -27,6 +27,7 @@ import Reconstruction5 from '@/assets/home/reconstruction5.png'
 import DNASteps from './dna-steps';
 import ReflectionSteps from './reflection-steps';
 import ReconstructionSteps from './reconstruction-steps';
+import CartographySteps from './cartography-steps';
 
 
 type ToggleT = 'dna' | 'reflection' | 'reconstructions' | 'cartography'
@@ -69,7 +70,7 @@ const Hero = () => {
                                 </div>
                                 <p>Reconstructions</p>
                             </ToggleGroupItem>
-                            <ToggleGroupItem value="maps" aria-label="Toggle bold" className='flex flex-col  gap-2 !text-muted-foreground group data-[state="on"]:!text-primary h-auto data-[state=on]:!bg-transparent hover:bg-transparent'>
+                            <ToggleGroupItem value="cartography" aria-label="Toggle bold" className='flex flex-col  gap-2 !text-muted-foreground group data-[state="on"]:!text-primary h-auto data-[state=on]:!bg-transparent hover:bg-transparent'>
                                 <div className="rounded-sm p-2 border   group-data-[state=on]:!border-white/20 bg-gradient-to-t from-white/10 group-data-[state=on]:!from-white/20 to-black">
                                     <IoMapOutline size={20} />
                                 </div>
@@ -78,10 +79,12 @@ const Hero = () => {
                         </ToggleGroup>
                     </header>
 
-                    <footer className='h-full mt-16'>
+                    <footer className='h-full mt-16 flex flex-col'>
                         {selectedToggle === 'dna' && <DNASteps />}
                         {selectedToggle === 'reflection' && <ReflectionSteps />}
                         {selectedToggle === 'reconstructions' && <ReconstructionSteps />}
+                        {selectedToggle === 'cartography' && <CartographySteps />}
+
                     </footer>
                 </footer>
 

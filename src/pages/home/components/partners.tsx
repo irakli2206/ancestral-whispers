@@ -9,9 +9,9 @@ import Myheritage from '@/assets/home/myheritage.png'
 const Partners = () => {
     return (
         <>
-            <section className='container max-w-6xl mx-auto flex flex-col gap-12 items-center py-36 px-6 relative '>
+            <section className='container max-w-6xl mx-auto flex flex-col gap-12 items-center py-12 px-6 relative '>
 
-                <div className="container relative border-t bg-black rounded-3xl h-96 flex justify-center py-20">
+                <div className="container relative border-t bg-background-black rounded-3xl h-96 flex justify-center py-20">
                     <div className="partners-background-top left-1/2 top-0 w-[300px] max-w-[300px] center pointer-events-none absolute h-px max-w-full -translate-x-1/2 -translate-y-1/2" ></div>
                     <div className="partners-background -top-1 left-1/2 h-[200px] w-full max-w-[200px] md:max-w-[400px] center pointer-events-none absolute max-w-full -translate-x-1/2 -translate-y-1/2"  ></div>
 
@@ -21,16 +21,16 @@ const Partners = () => {
                         <div className="grid grid-cols-3 [&>*]:justify-self-center [&>*]:self-center gap-x-2 mt-12 max-w-3xl mx-auto">
                             <img
                                 src={Twentythreeandme}
-                                className='h-20 object-contain '
+                                className='h-16 object-contain '
                             />
                             <img
                                 src={FTDNA}
-                                className='h-16 object-contain'
+                                className='h-12 object-contain'
                             />
 
                             <img
                                 src={Gedmatch}
-                                className='h-24 object-cover invert'
+                                className='h-20 object-cover invert-[98%]'
                             />
                             <img
                                 src={AncestryDNA}
@@ -38,11 +38,11 @@ const Partners = () => {
                             />
                             <img
                                 src={Myheritage}
-                                className='h-36 object-contain brightness-0 invert'
+                                className='h-32 object-contain brightness-0 invert'
                             />
                             <img
                                 src={QGIS}
-                                className='h-14 object-contain'
+                                className='h-12 object-contain'
                             />
                         </div>
                     </div>

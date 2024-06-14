@@ -4,8 +4,8 @@
 
 
 body {
-  /* background-color: #09090b !important; */
-  background-color: black !important; 
+  background-color: #050505 !important;
+  /* background-color: black !important;  */
 }
 
 @layer base {
@@ -77,14 +77,14 @@ body {
 
 .partners-background-top {
   background: linear-gradient(90deg, 
-  rgba(0, 0, 0, 0) 0%, 
+  #050505 0%, 
   rgba(255, 255, 255, 0.0) 0%, 
   rgba(143, 143, 143, 0.67) 50%, 
-  rgba(0, 0, 0, 0) 100%);
+  #050505 100%);
 }
 
 .partners-background {
-  background: conic-gradient(from 90deg at 50% 50%, #00000000 50%, #000 50%),
+  background: conic-gradient(from 90deg at 50% 50%, #00000000 50%, #050505 50%),
     radial-gradient(rgba(200, 200, 200, 0.1) 0%, transparent 80%);
 }
 
