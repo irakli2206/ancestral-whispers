@@ -25,7 +25,8 @@ module.exports = {
         body: "var(--body)"
       },
       fontSize: {
-        '6xl': '56px'
+        // Leading atrakebs
+        // '6xl': '56px'
       },
       colors: {
         "background-black": "#050505",

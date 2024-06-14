@@ -393,15 +393,19 @@ const About = () => {
     return (
         <section className='container max-w-6xl mx-auto flex flex-col gap-12 items-center py-24 px-6 relative '>
             <header className="flex flex-col w-full items-center">
-                <Badge variant={'outline'} className='-mb-1 w-fit bg-gradient-to-b from-transparent to-zinc-800/70 rounded-full '>About</Badge>
-                <h1 className='mb-2 text-end text-6xl [&>*]:font-display [text-shadow:0_2px_12px_rgba(174,207,242,.44)]'> <span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-400 from-10% to-55% to-white' >We are a diverse team of specialists</span></h1>
+                <Badge variant={'outline'} className='mb-1 w-fit bg-gradient-to-b from-transparent to-zinc-800/70 rounded-full '>About</Badge>
+                <h1 className='mb-4 text-center text-6xl [&>*]:font-display [text-shadow:0_2px_12px_rgba(174,207,242,.44)]'> <span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-400 from-10% to-55% to-white' >We are a diverse team of specialists from all around the world</span></h1>
                 <p className='text-muted-foreground text-md '>Our mission is a relentless journey to uncover and understand the depths of our shared human history.</p>
 
             </header>
 
-            <main className="h-[400px] w-full">
-                <Globe />
-            </main>
+            <div className="h-[400px] w-full relative overflow-hidden ">
+                <div className="z-[9999] absolute h-full w-full top-0 left-0 bg-gradient-to-b from-transparent from-50%   to-background-black"></div>
+
+                <main className="h-[800px] w-full">
+                    <Globe />
+                </main>
+            </div>
             {/* <Globe 
                 globeConfig={globeConfig}
                 data={sampleArcs}

@@ -60,8 +60,8 @@ const Testimonials = () => {
         <section className='overflow-visible flex flex-col gap-12 items-center py-24 px-6 relative  '>
             <header className="container max-w-6xl w-full">
                 <div className="flex flex-col w-full items-end flex-1 ">
-                    <Badge variant={'outline'} className='-mb-1 w-fit bg-gradient-to-b from-transparent to-zinc-800/70 rounded-full '>Testimonials</Badge>
-                    <h1 className='mb-2 self-end text-6xl [&>*]:font-display  [text-shadow:0_2px_12px_rgba(174,207,242,.44)]'> <span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-400 from-10% to-55% to-white' >Beyond expectations</span></h1>
+                    <Badge variant={'outline'} className='mb-1 w-fit bg-gradient-to-b from-transparent to-zinc-800/70 rounded-full '>Testimonials</Badge>
+                    <h1 className='mb-4 self-end text-6xl [&>*]:font-display  [text-shadow:0_2px_12px_rgba(174,207,242,.44)]'> <span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-400 from-10% to-55% to-white' >Beyond expectations</span></h1>
                     <p className='text-muted-foreground text-md '>We wouldn't be here without customer feedback. Here's what a few of them have to say.</p>
                 </div>
             </header>

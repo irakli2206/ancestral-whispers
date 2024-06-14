@@ -38,7 +38,7 @@ const Sphere = (props: any) => {
         }
     })
 
-    const generateFibonacciSpherePoints = (samples: number, radius:number) => {
+    const generateFibonacciSpherePoints = (samples: number, radius: number) => {
         const points = [];
         const offset = 2 / samples;
         const increment = Math.PI * (3 - Math.sqrt(5));
@@ -57,9 +57,10 @@ const Sphere = (props: any) => {
 
     useEffect(() => {
         const radius = 3.01; // Slightly larger than the sphere radius to avoid z-fighting
-        const points = generateFibonacciSpherePoints(5000, radius);
+        const points = generateFibonacciSpherePoints(50000, radius);
 
         if (pointsRef.current) {
+            // pointsRef.current.rotateX(50)
             pointsRef.current.geometry.setFromPoints(points);
         }
     }, []);
@@ -72,15 +73,15 @@ const Sphere = (props: any) => {
                 {...props}
                 ref={meshRef}
                 scale={1}
-                
+
 
             >
                 <sphereGeometry args={[3, 64, 32]} />
                 <meshStandardMaterial color='#4f46e5' />
             </mesh>
-            <points ref={pointsRef}  >
+            <points ref={pointsRef} >
                 <bufferGeometry />
-                <pointsMaterial color='#ffffff' size={0.02} depthTest={false} />
+                <pointsMaterial color='#ffffff' size={0.01} depthTest={false} />
             </points>
         </>
     );
