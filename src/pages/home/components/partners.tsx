@@ -42,7 +42,7 @@ const Partners = () => {
                             />
                             <img
                                 src={QGIS}
-                                className='h-16 object-contain'
+                                className='h-14 object-contain'
                             />
                         </div>
                     </div>

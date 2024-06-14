@@ -23,7 +23,7 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className={classnames('flex justify-center items-center  transition sticky top-0 z-10 backdrop-blur-sm', {
+        <nav className={classnames('flex justify-center items-center  transition sticky top-0 z-50 backdrop-blur-sm', {
             'border-b bg-black/50': scrolled
         })}>
             <section className="max-w-6xl container flex justify-between items-center py-2">
