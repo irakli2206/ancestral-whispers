@@ -21,7 +21,8 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        font: "var(--font)"
+        display: 'var(--display)',
+        body: "var(--body)"
       },
       colors: {
         "background-black": "#050505",

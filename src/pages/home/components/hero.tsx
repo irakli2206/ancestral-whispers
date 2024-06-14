@@ -39,8 +39,8 @@ const Hero = () => {
     return (
         <>
             <section className='container max-w-6xl mx-auto flex flex-col gap-12 items-center py-20 px-6 relative min-h-screen '>
-                <header className='max-w-2xl text-center flex items-center flex-col gap-4'>
-                    <h1 className=' *: text-6xl font-medium'>Uncover your past with Ancestral Whispers</h1>
+                <header className='max-w-3xl text-center flex items-center flex-col gap-4'>
+                    <h1 className=' text-7xl [&>*]:font-display  [text-shadow:0_2px_16px_rgba(174,207,242,.44)]'><span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-500 from-10% to-55% to-white'>Uncover your past with</span> <span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-400 from-10% to-55% to-white' >Ancestral Whispers</span></h1>
                     <p className='text-muted-foreground text-lg '>Ancestral Whispers provides universal and all-encompassing DNA research. Explore your heritage using DNA, maps, charts, historical data and more.</p>
                 </header>
 

@@ -26,6 +26,8 @@ import Reconstruction4 from '@/assets/home/reconstruction4.png'
 import Reconstruction5 from '@/assets/home/reconstruction5.png'
 import Hero from './components/hero';
 import Partners from './components/partners';
+import Trusted from './components/trusted';
+import FAQ from './components/faq';
 
 
 const tabs = [
@@ -44,6 +46,9 @@ const Home = () => {
     <>
       <Hero />
       <Partners />
+      <Trusted />
+
+      <FAQ />
     </>
   )
 }

@@ -7,19 +7,19 @@ import { Link } from 'react-router-dom'
 const DNASteps = () => {
     return (
         <div className="flex flex-col">
-            <div className='flex '>
-                <section className="h-full flex flex-col gap-2 px-4 py-2 flex-1">
+            <div className='flex flex-col md:flex-row gap-2 md:gap-0'>
+                <section className=" h-full flex flex-col gap-2 px-4 py-2 flex-1">
                     {/* <img src={DNAServices} className='h-40 w-auto object-contain object-left invert grayscale' /> */}
                     <h1 className='font-medium text-lg'>Submit your DNA results</h1>
                     <p className='text-muted-foreground'>To proceed, please provide DNA test results from companies like 23andMe, FamilyTreeDNA, or similar services.</p>
                 </section>
 
-                <section className="h-full flex flex-col gap-2 px-4 py-2 flex-1">
+                <section className="hero-step relative h-full flex flex-col gap-2 px-4 py-2 flex-1">
                     <h1 className='font-medium text-lg'>Select your desired subservices</h1>
                     <p className='text-muted-foreground'>We offer a variety of DNA research services. Choose the ones that best suit your needs.</p>
                 </section>
 
-                <section className="h-full flex flex-col gap-2 px-4 py-2 flex-1">
+                <section className="hero-step relative h-full flex flex-col gap-2 px-4 py-2 flex-1">
                     <h1 className='font-medium text-lg'>Receive your results</h1>
                     <p className='text-muted-foreground'>Your results will be delivered within 7 business days.</p>
                 </section>

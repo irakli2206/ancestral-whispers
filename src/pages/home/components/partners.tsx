@@ -9,11 +9,11 @@ import Myheritage from '@/assets/home/myheritage.png'
 const Partners = () => {
     return (
         <>
-            <section className='container max-w-6xl mx-auto flex flex-col gap-12 items-center py-12 px-6 relative '>
+            <section className='container max-w-6xl mx-auto flex flex-col gap-12 items-center py-12 pb-20 px-6 relative '>
 
                 <div className="container relative border-t bg-background-black rounded-3xl h-96 flex justify-center py-20">
-                    <div className="partners-background-top left-1/2 top-0 w-[300px] max-w-[300px] center pointer-events-none absolute h-px max-w-full -translate-x-1/2 -translate-y-1/2" ></div>
-                    <div className="partners-background -top-1 left-1/2 h-[200px] w-full max-w-[200px] md:max-w-[400px] center pointer-events-none absolute max-w-full -translate-x-1/2 -translate-y-1/2"  ></div>
+                    <div className="partners-background-top left-1/2 top-0 w-[300px] max-w-[300px] center pointer-events-none absolute h-px -translate-x-1/2 -translate-y-1/2" ></div>
+                    <div className="partners-background -top-0.5 left-1/2 h-[200px] w-full max-w-[200px] md:max-w-[400px] center pointer-events-none absolute -translate-x-1/2 -translate-y-1/2"  ></div>
 
                     <div className="container text-center">
                         <p className="text-muted-foreground text-lg">Compatible with all major DNA test providers. <br /> Working with cutting edge tech.</p>

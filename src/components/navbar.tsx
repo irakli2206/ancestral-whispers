@@ -24,10 +24,10 @@ const Navbar = () => {
 
     return (
         <nav className={classnames('flex justify-center items-center  transition sticky top-0 z-50 backdrop-blur-sm', {
-            'border-b bg-black/50': scrolled
+            'border-b bg-black/30': scrolled
         })}>
-            <section className="max-w-6xl container flex justify-between items-center py-2">
-                <FiCodesandbox size={40} strokeWidth={1} />
+            <section className="max-w-6xl container flex justify-between items-center py-2.5">
+                <FiCodesandbox size={36} strokeWidth={1} />
 
                 <div className="flex gap-8 text-sm font-medium">
                     <a href="#">Works</a>
