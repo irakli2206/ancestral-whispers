@@ -28,6 +28,7 @@ import Hero from './components/hero';
 import Partners from './components/partners';
 import Trusted from './components/trusted';
 import FAQ from './components/faq';
+import Testimonials from './components/testimonials';
 
 
 const tabs = [
@@ -48,6 +49,7 @@ const Home = () => {
       <Partners />
       <Trusted />
 
+      <Testimonials />
       <FAQ />
     </>
   )

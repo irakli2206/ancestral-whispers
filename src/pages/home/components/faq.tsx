@@ -28,10 +28,10 @@ const faqData = [
 
 const FAQ = () => {
     return (
-        <section className='container max-w-6xl mx-auto flex flex-col gap-12 items-center py-12 px-6 relative min-h-screen '>
-            <div className="flex flex-col w-full items-end">
-                <Badge variant={'outline'} className='mb-2 w-fit bg-gradient-to-b from-transparent to-zinc-800/80 rounded-full '>FAQ</Badge>
-                <h1 className='mb-8 text-end text-5xl [&>*]:font-display [text-shadow:0_2px_16px_rgba(174,207,242,.44)]'> <span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-400 from-10% to-55% to-white' >A few things about us</span></h1>
+        <section className='container max-w-6xl mx-auto flex flex-col gap-12 items-center py-24 px-6 relative '>
+            <div className="flex flex-col w-full items-center">
+                <Badge variant={'outline'} className='mb-2 w-fit bg-gradient-to-b from-transparent to-zinc-800/70 rounded-full '>FAQ</Badge>
+                <h1 className='mb-8 text-end text-5xl [&>*]:font-display [text-shadow:0_2px_12px_rgba(174,207,242,.44)]'> <span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-400 from-10% to-55% to-white' >A few things about us</span></h1>
             </div>
 
             <div className="flex flex-col w-full">
