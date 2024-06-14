@@ -24,6 +24,9 @@ module.exports = {
         display: 'var(--display)',
         body: "var(--body)"
       },
+      fontSize: {
+        '6xl': '56px'
+      },
       colors: {
         "background-black": "#050505",
         border: "hsl(var(--border))",

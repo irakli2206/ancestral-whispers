@@ -29,6 +29,8 @@ import Partners from './components/partners';
 import Trusted from './components/trusted';
 import FAQ from './components/faq';
 import Testimonials from './components/testimonials';
+import CTA from './components/cta';
+import About from './components/about';
 
 
 const tabs = [
@@ -51,6 +53,8 @@ const Home = () => {
 
       <Testimonials />
       <FAQ />
+      <About />
+      <CTA />
     </>
   )
 }
