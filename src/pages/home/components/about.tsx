@@ -1,25 +1,32 @@
 import Globe from '@/components/globe'
+import { Meteors } from '@/components/meteors';
+import { RisingStars } from '@/components/rising-stars';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Canvas } from '@react-three/fiber';
 import React from 'react'
 
 const About = () => {
- 
-   
+
+
 
     return (
-        <section className='container max-w-6xl mx-auto flex flex-col items-center py-24 px-6 relative '>
+        <section className='container max-w-6xl mx-auto flex flex-col  items-center py-24 px-6 relative overflow-hidden'>
             <header className="flex flex-col w-full items-center">
                 <Badge variant={'outline'} className='mb-1 w-fit bg-gradient-to-b from-transparent to-zinc-800/70 rounded-full '>About</Badge>
                 <h1 className='mb-4 text-center text-6xl [&>*]:font-display [text-shadow:0_2px_12px_rgba(174,207,242,.44)]'> <span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-400 from-10% to-55% to-white' >We are a diverse team of specialists from all around the world</span></h1>
                 <p className='text-muted-foreground text-md '>Our mission is a relentless journey to uncover and understand the depths of our shared human history.</p>
-                
+
                 <Button variant='outline' className='mt-10'>Our values</Button>
             </header>
 
+            <div className="absolute left-20 top-64 ">
+                <Meteors distanceBetweenMeteors={800} />
+            </div>
+
             <div className="h-[600px]  w-full relative  overflow-hidden ">
                 <div className="z-[9999] absolute h-full w-full top-0 left-0 bg-[radial-gradient(80%_79.55%_at_50%_0%,transparent_0%,#050505_100%)]"></div>
+
 
                 <main className=" flex w-full items-center justify-center overflow-hidden">
                     <Globe />
