@@ -11,13 +11,13 @@ const About = () => {
 
 
     return (
-        <section className='container max-w-6xl mx-auto flex flex-col  items-center py-24 pb-12 px-6 relative overflow-hidden'>
-            <header className="flex flex-col w-full items-center">
+        <section className=' max-w-6xl mx-auto flex flex-col  items-center py-24 pb-12 lg:px-6 relative overflow-hidden'>
+            <header className="container flex flex-col w-full items-center">
                 <Badge variant={'outline'} className='mb-1 w-fit bg-gradient-to-b from-transparent to-zinc-800/70 rounded-full '>About</Badge>
-                <h1 className='mb-4 text-center text-6xl [&>*]:font-display [text-shadow:0_2px_12px_rgba(174,207,242,.44)]'> <span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-400 from-10% to-55% to-white' >We are a diverse team of specialists from all around the world</span></h1>
-                <p className='text-muted-foreground text-md '>Our mission is a relentless journey to uncover and understand the depths of our shared human history.</p>
+                <h1 className='mb-4 text-center text-5xl md:text-6xl [&>*]:font-display [text-shadow:0_2px_12px_rgba(174,207,242,.44)]'> <span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-400 from-10% to-55% to-white' >We are a diverse team of specialists from all around the world</span></h1>
+                <p className='text-muted-foreground text-md text-center'>Our mission is a relentless journey to uncover and understand the depths of our shared human history.</p>
 
-                <Button variant='outline' className='mt-10'>Our values</Button>
+                <Button variant='primary' className='mt-8'>See our values</Button>
             </header>
 
             <div className="absolute left-20 top-64 ">

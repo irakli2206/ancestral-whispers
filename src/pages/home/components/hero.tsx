@@ -45,18 +45,18 @@ const Hero = () => {
             <section className='container max-w-6xl mx-auto flex flex-col gap-12 items-center py-20 px-6 relative min-h-screen '>
 
                 <header className='max-w-3xl text-center flex items-center flex-col gap-4'>
-                    <h1 className=' text-7xl [&>*]:font-display  [text-shadow:0_2px_16px_rgba(174,207,242,.44)]'><span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-500 from-10% to-55% to-white'>Uncover your past with</span> <span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-400 from-10% to-55% to-white' >Ancestral Whispers</span></h1>
+                    <h1 className='text-6xl md:text-7xl [&>*]:font-display  [text-shadow:0_2px_16px_rgba(174,207,242,.44)]'><span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-500 from-10% to-55% to-white'>Uncover your past with</span> <span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-400 from-10% to-55% to-white' >Ancestral Whispers</span></h1>
                     <p className='text-muted-foreground text-lg '>Ancestral Whispers provides universal and all-encompassing DNA research. Explore your heritage using DNA, maps, charts, historical data and more.</p>
                 </header>
 
-                <main className="flex gap-4">
+                <main className="flex flex-col sm:flex-row gap-4">
                     <Button variant={'primary'} className='rounded-lg px-10 ' >Get In Touch </Button>
-                    <Button variant={'link'} size='lg' className='rounded-full gap-2 text-muted-foreground hover:text-primary transition !no-underline group ' >Explore <CgArrowLongRight size={20} className='group-hover:text-primary group-hover:translate-x-1 transition-transform ' /></Button>
+                    <Button variant={'link'} size='lg' className='gap-2 text-muted-foreground hover:text-primary transition !no-underline group ' >Explore <CgArrowLongRight size={20} className='group-hover:text-primary group-hover:translate-x-1 transition-transform ' /></Button>
                 </main>
 
                 <footer className='mt-10 relative '>
                     <header className="z-20 relative ">
-                        <ToggleGroup value={selectedToggle} onValueChange={(e) => setSelectedToggle(e as ToggleT)} type="single" className='items-start gap-0 lg:gap-4' >
+                        <ToggleGroup value={selectedToggle} onValueChange={(e) => setSelectedToggle(e as ToggleT)} type="single" className='grid grid-cols-2 sm:grid-cols-4 gap-y-4 w-fit mx-auto items-start lg:gap-4' >
                             <ToggleGroupItem value="dna" aria-label="Toggle bold" className='flex flex-col  gap-2 !text-muted-foreground group data-[state="on"]:!text-primary h-auto data-[state=on]:!bg-transparent hover:bg-transparent'>
                                 <div className="rounded-sm p-2 border   group-data-[state=on]:!border-white/20 bg-gradient-to-t from-white/10 group-data-[state=on]:!from-white/20 to-black">
                                     <TbDna2 size={20} />

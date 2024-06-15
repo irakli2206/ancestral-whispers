@@ -36,7 +36,7 @@ const Navbar = () => {
                 </div>
 
 
-                <Button variant={'primary'} className='rounded-full'>Get In Touch</Button>
+                <Button variant={'primary'} className='rounded-lg'>Get in touch</Button>
             </section>
 
         </nav>

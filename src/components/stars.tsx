@@ -45,7 +45,7 @@ export const FloatingStars = ({ numberOfStars = 100, opacity = 'high' }: Props) 
 }
 
 
-export const RisingStars = ({ numberOfStars = 100, opacity = 'high' }: Props) => {
+export const RisingStars = React.memo(({ numberOfStars = 100, opacity = 'high' }: Props) => {
     const ref = useRef(null)
     const isInView = useInView(ref, { amount: 'some', once: false, margin: '500px' })
 
@@ -87,7 +87,7 @@ export const RisingStars = ({ numberOfStars = 100, opacity = 'high' }: Props) =>
             }
         </div>
     );
-}
+})
 
 export const BlinkingStars = ({ numberOfStars = 100, opacity = 'high' }: Props) => {
     const ref = useRef(null)

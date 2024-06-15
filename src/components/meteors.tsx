@@ -15,7 +15,7 @@ export const Meteors = ({
     className,
 }: Props) => {
     const ref = useRef(null)
-    const isInView = useInView(ref, { amount: 'some', once: false, margin: '300px' })
+    const isInView = useInView(ref, { amount: 'some', once: true, margin: '300px' })
 
     const meteors = new Array(numberOfMeteors || 20).fill(true);
     return (

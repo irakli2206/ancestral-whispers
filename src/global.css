@@ -127,7 +127,7 @@ body {
 
 .hero-step::before {
   background-color: #ffffff3d;
-  background: linear-gradient(180deg, transparent, rgb(37, 35, 35) 30%, #868585, rgb(37, 35, 35) 70%, transparent);
+  background: linear-gradient(180deg, transparent, rgb(37, 35, 35) 30%, #686868, rgb(37, 35, 35) 70%, transparent);
   content: "";
   display: block;
   height: 100%;

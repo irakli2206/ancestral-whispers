@@ -17,7 +17,7 @@ const Trusted = () => {
             <header className="flex justify-between gap-8">
                 <div className="flex flex-col  flex-1">
                     <Badge variant={'outline'} className='mb-1 w-fit bg-gradient-to-b from-transparent to-zinc-800/70 rounded-full '>Quality Approved</Badge>
-                    <h1 className='mb-4 self-start text-6xl [&>*]:font-display [text-shadow:0_2px_12px_rgba(174,207,242,.44)]'> <span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-400 from-10% to-55% to-white' >Trusted by experts</span></h1>
+                    <h1 className='mb-4 self-start text-5xl md:text-6xl [&>*]:font-display [text-shadow:0_2px_12px_rgba(174,207,242,.44)]'> <span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-400 from-10% to-55% to-white' >Trusted by experts</span></h1>
                     <p className='text-muted-foreground text-lg '>Trusted by experts like Aleksey Nechvaloda and Martin Furholt, our work is renowned for its precision and reliability. Leading professionals across various fields rely on our expertise for accurate and insightful results. <br /><br /> Our steadfast dedication to excellence drives us to uphold the most stringent standards in every project we undertake. This unwavering commitment has established us as a trusted partner among global industry leaders, cementing our reputation for excellence and reliability.</p>
                 </div>
                 <div className=" flex-col gap-2 hidden lg:flex flex-1">

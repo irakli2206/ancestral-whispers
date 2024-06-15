@@ -31,7 +31,7 @@ const FAQ = () => {
         <section className='container max-w-6xl mx-auto flex flex-col gap-12 items-center py-24 px-6 relative '>
             <header className="flex flex-col w-full items-start">
                 <Badge variant={'outline'} className='mb-1 w-fit bg-gradient-to-b from-transparent to-zinc-800/70 rounded-full '>FAQ</Badge>
-                <h1 className='mb-8 text-end text-6xl [&>*]:font-display [text-shadow:0_2px_12px_rgba(174,207,242,.44)]'> <span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-400 from-10% to-55% to-white' >Things you may ask</span></h1>
+                <h1 className='mb-8 text-end text-5xl md:text-6xl [&>*]:font-display [text-shadow:0_2px_12px_rgba(174,207,242,.44)]'> <span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-400 from-10% to-55% to-white' >Things you may ask</span></h1>
             </header>
 
             <div className="flex flex-col w-full">

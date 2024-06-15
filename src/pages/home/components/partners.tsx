@@ -14,10 +14,10 @@ const Partners = () => {
                 <div className="container relative border-t bg-background-black rounded-3xl h-96 flex justify-center py-20">
                     <div className="partners-background-top left-1/2 top-0 w-[300px] max-w-[300px] center pointer-events-none absolute h-px -translate-x-1/2 -translate-y-1/2" ></div>
                     <div className="partners-background -top-0.5 left-1/2 h-[200px] w-full max-w-[200px] md:max-w-[400px] center pointer-events-none absolute -translate-x-1/2 -translate-y-1/2"  ></div>
-                    <div className="container text-center">
+                    <div className=" text-center">
                         <p className="text-muted-foreground text-lg">Compatible with all major DNA test providers. <br /> Working with cutting edge tech.</p>
 
-                        <div className="grid grid-cols-3 [&>*]:justify-self-center [&>*]:self-center gap-x-2 mt-12 max-w-3xl mx-auto">
+                        <div className="grid grid-cols-2 md:grid-cols-3 [&>*]:justify-self-center [&>*]:self-center gap-2 mt-12 max-w-3xl mx-auto">
                             <img
                                 src={Twentythreeandme}
                                 className='h-16 object-contain '
@@ -37,7 +37,7 @@ const Partners = () => {
                             />
                             <img
                                 src={Myheritage}
-                                className='h-32 object-contain brightness-0 invert'
+                                className='h-24 md:h-32 object-contain brightness-0 invert'
                             />
                             <img
                                 src={QGIS}
