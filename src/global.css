@@ -125,6 +125,7 @@ body {
   /*5*/
 }
 
+
 .hero-step::before {
   background-color: #ffffff3d;
   background: linear-gradient(180deg, transparent, rgb(37, 35, 35) 30%, #686868, rgb(37, 35, 35) 70%, transparent);
@@ -153,4 +154,14 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+
+  /** Chrominum */
+  /* @media all and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+    
+      .navigation-viewport {
+        @apply bg-popover !important
+      }
+     
+  } */
+ 
 }

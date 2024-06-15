@@ -21,10 +21,13 @@ import {
     NavigationMenuItem,
     NavigationMenuLink,
     NavigationMenuList,
+    NavigationMenuTrigger,
+    NavigationMenuViewport,
     navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
 import { cn } from '@/lib/utils';
-import { NavigationMenuTrigger } from '@radix-ui/react-navigation-menu';
+import { CgArrowLongRight } from "react-icons/cg";
+import { GoChevronRight } from "react-icons/go";
 
 
 const components: { title: string; href: string; description: string }[] = [
@@ -85,20 +88,26 @@ const Navbar = () => {
     }, []);
 
     return (
-        <nav className={classnames('flex justify-center items-center  transition sticky top-0 z-[9999] backdrop-blur-sm', {
+        <nav className={classnames('flex justify-center items-center  transition sticky top-0 z-[9999] ', {
             'border-b bg-black/30': scrolled
         })}>
-            <section className="max-w-6xl container hidden sm:flex justify-between items-center py-2.5">
+            {/* Have to add separate blur div cause can't nest blurs in Chrome */}
+            <div className="absolute h-full w-full backdrop-blur-sm z-10"></div>
+
+            <section className="max-w-6xl container hidden sm:flex justify-between items-center py-2.5 z-20">
                 <FiCodesandbox size={36} strokeWidth={1} />
 
 
-                <NavigationMenu>
+                <NavigationMenu  >
+
+
                     <NavigationMenuList className='flex gap-8 text-sm font-medium '>
 
-                        <NavigationMenuItem>
-                            <NavigationMenuTrigger asChild><p className='cursor-pointer'>Test</p></NavigationMenuTrigger>
-                            <NavigationMenuContent className=' ' >
-                                <ul className="grid gap-3 [&>*]:rounded-none p-2 md:w-[400px] lg:w-[500px] ">
+                        <NavigationMenuItem >
+                            <NavigationMenuTrigger>Projects</NavigationMenuTrigger>
+                            <NavigationMenuContent className='relative'  >
+                                <div className="absolute h-full w-full top-0 left-0 "></div>
+                                <ul className="grid gap-2 [&>*]:rounded-none p-2 md:w-[400px] lg:w-[500px] relative z-50 ">
 
                                     <ListItem href="/docs" title="Introduction">
                                         Re-usable components built using Radix UI and Tailwind CSS.
@@ -109,12 +118,35 @@ const Navbar = () => {
                                     <ListItem href="/docs/primitives/typography" title="Typography">
                                         Styles for headings, paragraphs, lists...etc
                                     </ListItem>
+
+                                    <ListButton href="/contact" title="Request commission" className=' '  >
+                                        <p className='text-xs'>Can't find what you're looking for? We'll see how we can help!</p>
+                                    </ListButton>
                                 </ul>
                             </NavigationMenuContent>
                         </NavigationMenuItem>
 
                         <NavigationMenuItem>
-                            <Link to="/docs"    >
+                            <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+                            <NavigationMenuContent  >
+                                <ul className="grid gap-2 [&>*]:rounded-none p-2 md:w-[400px] lg:w-[500px] ">
+
+                                    <ListItem href="/docs" title="Introduction">
+                                        Re-usable components built using Radix UI and Tailwind CSS.
+                                    </ListItem>
+                                    <ListItem href="/docs/installation" title="Installation">
+                                        How to install dependencies and structure your app.
+                                    </ListItem>
+                                    <ListItem href="/docs/primitives/typography" title="Typography">
+                                        Styles for headings, paragraphs, lists...etc
+                                    </ListItem>
+
+                                </ul>
+                            </NavigationMenuContent>
+                        </NavigationMenuItem>
+
+                        <NavigationMenuItem>
+                            <Link to="/docs" >
                                 Blog
                             </Link>
                         </NavigationMenuItem>
@@ -125,6 +157,9 @@ const Navbar = () => {
                         </NavigationMenuItem>
 
                     </NavigationMenuList>
+
+                    {/* < NavigationMenuViewport className=' -left-1/2 w-20'  /> */}
+
                 </NavigationMenu>
 
 
@@ -165,7 +200,7 @@ export default Navbar
 
 const ListItem = React.forwardRef<
     React.ElementRef<"a">,
-    React.ComponentPropsWithoutRef<"a">
+    React.ComponentPropsWithoutRef<"a"> & { icon?: JSX.Element }
 >(({ className, title, children, ...props }, ref) => {
     return (
         <li>
@@ -173,18 +208,59 @@ const ListItem = React.forwardRef<
                 <a
                     ref={ref}
                     className={cn(
-                        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+                        "group flex justify-between items-center select-none  rounded-md p-3 leading-none no-underline outline-none transition-colors   hover:text-accent-foreground focus:bg-accent/50 focus:text-accent-foreground",
                         className
                     )}
                     {...props}
                 >
-                    <div className="text-sm font-medium leading-none">{title}</div>
-                    <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-                        {children}
-                    </p>
+                    <div className='flex flex-col space-y-1'>
+                        <div className="flex gap-1.5 items-end text-sm font-medium leading-none text-primary/80 group-hover:text-primary">
+                            <p>{title}</p>
+                            <GoChevronRight size={12} className='transition  opacity-0 group-hover:!opacity-100 group-hover:translate-x-1' />
+                        </div>
+                        <p className="line-clamp-2 text-xs leading-snug text-muted-foreground/80 group-hover:text-muted-foreground">
+                            {children}
+                        </p>
+                    </div>
+
+                    {props.icon}
+
                 </a>
             </NavigationMenuLink>
         </li>
     )
 })
 ListItem.displayName = "ListItem"
+
+const ListButton = React.forwardRef<
+    React.ElementRef<"a">,
+    React.ComponentPropsWithoutRef<"a"> & { icon?: JSX.Element }
+>(({ className, title, children, ...props }, ref) => {
+    return (
+        <li>
+            <NavigationMenuLink asChild>
+                <a
+                    ref={ref}
+                    className={cn(
+                        "group bg-zinc-900 hover:bg-zinc-900/85 border flex justify-between items-center select-none  rounded-md p-3 leading-none no-underline outline-none transition-colors   hover:text-accent-foreground focus:bg-accent/50 focus:text-accent-foreground",
+                        className
+                    )}
+                    {...props}
+                >
+                    <div className='flex flex-col space-y-1'>
+                        <div className="flex gap-1.5 items-end text-sm font-medium leading-none text-primary/80 group-hover:text-primary">
+                            <p>{title}</p>
+                        </div>
+                        <p className="line-clamp-2 text-xs leading-snug text-muted-foreground/80 group-hover:text-muted-foreground">
+                            {children}
+                        </p>
+                    </div>
+
+                    {props.icon}
+
+                </a>
+            </NavigationMenuLink>
+        </li>
+    )
+})
+ListItem.displayName = "ListButton"
