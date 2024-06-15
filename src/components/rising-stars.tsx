@@ -55,7 +55,7 @@ export const RisingStars = ({ numberOfStars = 100, opacity = 'high' }: Props) =>
 
 
     return (
-        <div ref={ref} className={classNames("absolute top-0 w-full h-full ",)}>
+        <div ref={ref} className={classNames("absolute top-0 w-full h-full -z-10",)}>
             {isInView ? [...Array(numberOfStars)].map((_, i) => (
                 <motion.span
                     key={`star-${i}`}
