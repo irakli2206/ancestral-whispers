@@ -1,12 +1,13 @@
-import React from 'react'
-import { motion } from "framer-motion";
+import React, { useRef } from 'react'
+import { motion, useInView } from "framer-motion";
+import classNames from 'classnames';
 
 type Props = {
     numberOfStars?: number
     opacity?: 'high' | 'low'
 }
 
-export const FloatingStars = ({numberOfStars = 100, opacity = 'high'}: Props) => {
+export const FloatingStars = ({ numberOfStars = 100, opacity = 'high' }: Props) => {
     const randomMove = () => Math.random() * 4 - 2;
     const randomOpacity = () => Math.random();
     const random = () => Math.random();
@@ -44,18 +45,23 @@ export const FloatingStars = ({numberOfStars = 100, opacity = 'high'}: Props) =>
 }
 
 
-export const RisingStars = ({numberOfStars = 100, opacity = 'high'}: Props) => {
+export const RisingStars = ({ numberOfStars = 100, opacity = 'high' }: Props) => {
+    const ref = useRef(null)
+    const isInView = useInView(ref, { amount: 'some', once: false, margin: '500px' })
+
     const randomMove = () => Math.random() * 4 - 2;
     const randomOpacity = () => Math.random();
     const random = () => Math.random();
+
+
     return (
-        <div className="absolute top-0 w-full h-full">
-            {[...Array(numberOfStars)].map((_, i) => (
+        <div ref={ref} className={classNames("absolute top-0 w-full h-full ",)}>
+            {isInView ? [...Array(numberOfStars)].map((_, i) => (
                 <motion.span
                     key={`star-${i}`}
                     animate={{
                         top: `${randomMove()}px`,
-                        opacity: opacity === 'high' ? [randomOpacity(), 0] : [randomOpacity()/2, 0],
+                        opacity: opacity === 'high' ? [randomOpacity(), 0] : [randomOpacity() / 2, 0],
                         scale: [0.5, 0.6, 0],
                     }}
                     transition={{
@@ -75,7 +81,10 @@ export const RisingStars = ({numberOfStars = 100, opacity = 'high'}: Props) => {
                     }}
                     className="inline-block"
                 ></motion.span>
-            ))}
+            ))
+                :
+                null
+            }
         </div>
     );
 }

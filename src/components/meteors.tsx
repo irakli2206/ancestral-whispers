@@ -1,9 +1,10 @@
 import { cn } from "@/lib/utils";
 import clsx from "clsx";
-import React from "react";
+import { useInView } from "framer-motion";
+import React, { useRef } from "react";
 
 type Props = {
-    numberOfMeteors?: number 
+    numberOfMeteors?: number
     distanceBetweenMeteors?: number
     className?: string
 }
@@ -13,10 +14,13 @@ export const Meteors = ({
     distanceBetweenMeteors = 400,
     className,
 }: Props) => {
+    const ref = useRef(null)
+    const isInView = useInView(ref, { amount: 'some', once: false, margin: '300px' })
+
     const meteors = new Array(numberOfMeteors || 20).fill(true);
     return (
-        <>
-            {meteors.map((el, idx) => (
+        <div ref={ref}>
+            {isInView ? meteors.map((el, idx) => (
                 <span
                     key={"meteor" + idx}
                     className={cn(
@@ -31,7 +35,10 @@ export const Meteors = ({
                         animationDuration: Math.floor(Math.random() * (10 - 2) + 4) + "s",
                     }}
                 ></span>
-            ))}
-        </>
+            ))
+                :
+                null
+            }
+        </div>
     );
 };

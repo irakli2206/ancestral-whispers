@@ -11,7 +11,7 @@ const About = () => {
 
 
     return (
-        <section className='container max-w-6xl mx-auto flex flex-col  items-center py-24 px-6 relative overflow-hidden'>
+        <section className='container max-w-6xl mx-auto flex flex-col  items-center py-24 pb-12 px-6 relative overflow-hidden'>
             <header className="flex flex-col w-full items-center">
                 <Badge variant={'outline'} className='mb-1 w-fit bg-gradient-to-b from-transparent to-zinc-800/70 rounded-full '>About</Badge>
                 <h1 className='mb-4 text-center text-6xl [&>*]:font-display [text-shadow:0_2px_12px_rgba(174,207,242,.44)]'> <span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-400 from-10% to-55% to-white' >We are a diverse team of specialists from all around the world</span></h1>
@@ -25,7 +25,7 @@ const About = () => {
             </div>
 
             <div className="h-[600px]  w-full relative  overflow-hidden ">
-                <div className="z-[9999] absolute h-full w-full top-0 left-0 bg-[radial-gradient(80%_79.55%_at_50%_0%,transparent_0%,#050505_100%)]"></div>
+                <div className="z-[51] absolute h-full w-full top-0 left-0 bg-[radial-gradient(80%_79.55%_at_50%_0%,transparent_0%,#050505_100%)]"></div>
 
 
                 <main className=" flex w-full items-center justify-center overflow-hidden">
