@@ -1,6 +1,6 @@
 import Globe from '@/components/globe'
 import { Meteors } from '@/components/meteors';
-import { RisingStars } from '@/components/rising-stars';
+import { RisingStars } from '@/components/stars';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Canvas } from '@react-three/fiber';
@@ -25,10 +25,7 @@ const About = () => {
             </div>
 
             <div className="h-[600px]  w-full relative  overflow-hidden ">
-                <div className="z-[51] absolute h-full w-full top-0 left-0 bg-[radial-gradient(80%_79.55%_at_50%_0%,transparent_0%,#050505_100%)]"></div>
-
-
-                <main className=" flex w-full items-center justify-center overflow-hidden">
+                <main className=" flex w-full items-center justify-center overflow-hidden mask">
                     <Globe />
                 </main>
             </div>

@@ -5,7 +5,7 @@ import QGIS from '@/assets/home/qgis-icon-white128.png'
 import Gedmatch from '@/assets/home/gedmatch.png'
 import AncestryDNA from '@/assets/home/Ancestry-Logo-PNG1.png'
 import Myheritage from '@/assets/home/myheritage.png'
-import RisingStars from '@/components/rising-stars'
+import RisingStars from '@/components/stars'
 
 const Partners = () => {
     return (

@@ -28,7 +28,7 @@ import DNASteps from './dna-steps';
 import ReflectionSteps from './reflection-steps';
 import ReconstructionSteps from './reconstruction-steps';
 import CartographySteps from './cartography-steps';
-import { RisingStars } from '@/components/rising-stars';
+import { RisingStars } from '@/components/stars';
 
 
 type ToggleT = 'dna' | 'reflection' | 'reconstructions' | 'cartography'

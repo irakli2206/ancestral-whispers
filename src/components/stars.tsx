@@ -89,3 +89,47 @@ export const RisingStars = ({ numberOfStars = 100, opacity = 'high' }: Props) =>
     );
 }
 
+export const BlinkingStars = ({ numberOfStars = 100, opacity = 'high' }: Props) => {
+    const ref = useRef(null)
+    const isInView = useInView(ref, { amount: 'some', once: false, margin: '500px' })
+
+    const randomMove = () => Math.random() * 4 - 2;
+    const randomOpacity = () => Math.random();
+    const random = () => Math.random();
+
+
+    return (
+        <div ref={ref} className={classNames("absolute top-0 w-full h-full -z-10",)}>
+            {isInView ? [...Array(numberOfStars)].map((_, i) => (
+                <motion.span
+                    key={`star-${i}`}
+                    animate={{
+                        opacity: [randomOpacity(), randomOpacity() * 3, randomOpacity() * 3, randomOpacity()]  ,
+                        scale: [1, randomOpacity() * 2, randomOpacity() * 2, 1],
+                    }}
+                    transition={{
+                        duration: random() * 10 + 3,
+                        repeat: Infinity,
+                        ease: "linear",
+                        times: [0.05, 0.1, 0.8, 0.9]
+                    }}
+                    style={{
+                        position: "absolute",
+                        top: `${random() * 100}%`,
+                        left: `${random() * 100}%`,
+                        width: `2px`,
+                        height: `2px`,
+                        backgroundColor: "white",
+                        borderRadius: "50%",
+                        zIndex: 1,
+                    }}
+                    className="inline-block"
+                ></motion.span>
+            ))
+                :
+                null
+            }
+        </div>
+    );
+}
+

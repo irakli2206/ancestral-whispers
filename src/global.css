@@ -76,6 +76,10 @@ body {
 }
 
 
+.mask {
+  mask-image: radial-gradient(140% 90% at 50% 0%, #000 0%, transparent 60%);
+}
+
 .partners-background-top {
   background: linear-gradient(90deg,
       #050505 0%,
@@ -90,7 +94,7 @@ body {
 }
 
 .carousel {
-  mask-image: linear-gradient(var(--mask-direction, to right), transparent, #000 20%, #000 80%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 20%, #000 80%, transparent);
 }
 
 

@@ -1,4 +1,4 @@
-import { FloatingStars, RisingStars } from '@/components/rising-stars'
+import { BlinkingStars, FloatingStars, RisingStars } from '@/components/stars'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { useInView } from 'framer-motion'
@@ -8,10 +8,15 @@ const CTA = () => {
 
 
   return (
-    <section className='container  mx-auto flex flex-col gap-12 items-center justify-center py-12 pb-36 min-h-[700px] px-6 relative overflow-hidden'>
-      <RisingStars numberOfStars={200} />
+    <section className='  mx-auto flex flex-col gap-12 items-center justify-center py-12 pb-36 min-h-[700px] px-6 relative overflow-hidden '
+      style={{
+        background: 'linear-gradient(180deg, transparent, black)',
+        
+      }}
+    >
+      <BlinkingStars numberOfStars={200} />
 
-      <header className="flex max-w-6xl flex-col w-full items-center ">
+      <header className="flex max-w-6xl container flex-col w-full items-center ">
         <h1 className='mb-4 text-center text-6xl [&>*]:font-display [text-shadow:0_2px_12px_rgba(174,207,242,.44)]'> <span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-400 from-10% to-55% to-white' >Uncover your heritage! Explore our projects today!</span></h1>
         {/* <p className='text-muted-foreground text-md '>Our mission is a relentless journey to uncover and understand the depths of our shared human history.</p> */}
 
