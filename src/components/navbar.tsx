@@ -101,10 +101,10 @@ const Navbar = () => {
                 <NavigationMenu  >
 
 
-                    <NavigationMenuList className='flex gap-8 text-sm font-medium '>
+                    <NavigationMenuList className='flex gap-8 text-[13px] font-medium '>
 
                         <NavigationMenuItem >
-                            <NavigationMenuTrigger>Projects</NavigationMenuTrigger>
+                            <NavigationMenuTrigger className='text-[13px]'>Projects</NavigationMenuTrigger>
                             <NavigationMenuContent className='relative'  >
                                 <div className="absolute h-full w-full top-0 left-0 "></div>
                                 <ul className="grid gap-2 [&>*]:rounded-none p-2 md:w-[400px] lg:w-[500px] relative z-50 ">
@@ -127,7 +127,7 @@ const Navbar = () => {
                         </NavigationMenuItem>
 
                         <NavigationMenuItem>
-                            <NavigationMenuTrigger>Services</NavigationMenuTrigger>
+                            <NavigationMenuTrigger className='text-[13px]'>Services</NavigationMenuTrigger>
                             <NavigationMenuContent  >
                                 <ul className="grid gap-2 [&>*]:rounded-none p-2 md:w-[400px] lg:w-[500px] ">
 
@@ -208,17 +208,17 @@ const ListItem = React.forwardRef<
                 <a
                     ref={ref}
                     className={cn(
-                        "group flex justify-between items-center select-none  rounded-md p-3 leading-none no-underline outline-none transition-colors   hover:text-accent-foreground focus:bg-accent/50 focus:text-accent-foreground",
+                        "group flex justify-between items-center select-none  rounded-md p-3 leading-none no-underline outline-none transition  focus:bg-accent/50 ",
                         className
                     )}
                     {...props}
                 >
-                    <div className='flex flex-col space-y-1'>
-                        <div className="flex gap-1.5 items-end text-sm font-medium leading-none text-primary/80 group-hover:text-primary">
-                            <p>{title}</p>
+                    <div className='flex flex-col space-y-1 transition '>
+                        <div className="flex gap-1.5 items-center text-sm font-medium ">
+                            <p className='text-primary/80 group-hover:text-primary'>{title}</p>
                             <GoChevronRight size={12} className='transition  opacity-0 group-hover:!opacity-100 group-hover:translate-x-1' />
                         </div>
-                        <p className="line-clamp-2 text-xs leading-snug text-muted-foreground/80 group-hover:text-muted-foreground">
+                        <p className="  text-xs  text-muted-foreground/80 group-hover:text-muted-foreground ">
                             {children}
                         </p>
                     </div>
