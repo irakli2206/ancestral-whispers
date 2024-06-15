@@ -7,99 +7,57 @@ import { Canvas, MeshProps, createRoot, useFrame, Vector3 } from '@react-three/f
 import { Mesh, Points } from "three";
 import * as THREE from 'three';
 import { MeshBVH, computeBoundsTree, disposeBoundsTree, acceleratedRaycast } from 'three-mesh-bvh';
+import createGlobe from "cobe";
 
 
 
-export function Globe(props: any) {
+const Globe = (props: any) => {
+    const canvasRef = useRef();
 
-
-    return (
-        <>
-            <Canvas>
-                <ambientLight intensity={Math.PI / 2} />
-                <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} decay={0} intensity={Math.PI} />
-                <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
-                <Sphere position={[0, 0, 0]} />
-            </Canvas>
-        </>
-    );
-}
-
-
-const Sphere = (props: any) => {
-    const meshRef = useRef<Mesh>()
-    const pointsRef = useRef<Points>();
-
-    // Subscribe this component to the render-loop, rotate the mesh every frame
-    useFrame((state, delta) => {
-        if (meshRef.current) {
-            meshRef.current.rotation.y += 0.002
-        }
-        if (pointsRef.current) {
-            pointsRef.current.rotation.y += 0.002
-        }
-    })
-
-    const generateFibonacciSpherePoints = (samples: number, radius: number) => {
-        if (meshRef.current && pointsRef.current) {
-            const points = [];
-            const offset = 2 / samples;
-            const increment = Math.PI * (3 - Math.sqrt(5));
-
-
-            for (let i = 0; i < samples; i++) {
-                const y = i * offset - 1 + (offset / 2);
-                const r = Math.sqrt(1 - y * y);
-                const phi = i * increment;
-
-                const x = Math.cos(phi) * r * radius;
-                const z = Math.sin(phi) * r * radius;
-
-                const point = new THREE.Vector3(x, y * radius, z)
- 
-                
-                points.push(point);
-
-            }
-            return points;
-        }
-
-    };
 
     useEffect(() => {
-        const radius = 3.01; // Slightly larger than the sphere radius to avoid z-fighting
-        const points = generateFibonacciSpherePoints(50000, radius);
+        let phi = 0;
 
-        if (pointsRef.current) {
-            // pointsRef.current.rotateX(50)
-            pointsRef.current.geometry.setFromPoints(points);
-        }
+        const globe = createGlobe(canvasRef.current, {
+            devicePixelRatio: 2,
+            width: 1000 * 2,
+            height: 1000 * 2,
+            phi: 0,
+            theta: 0.2,
+            dark: 1,
+            diffuse: 1.2,
+            mapSamples: 16000,
+            mapBrightness: 20,
+            baseColor: [0.5, 0.5, 0.5],
+            markerColor: [0.1, 0.8, 1],
+            opacity: 0.5,
+            glowColor: [1, 1, 1],
+            
+            markers: [
+                // longitude latitude
+                // { location: [37.7595, -122.4367], size: 0.03 },
+                // { location: [40.7128, -74.006], size: 0.1 }
+            ],
+            onRender: (state) => {
+                // Called on every animation frame.
+                // `state` will be an empty object, return updated params.
+                state.phi = phi;
+                phi += 0.004;
+            }
+        });
+
+        return () => {
+            globe.destroy();
+        };
     }, []);
-
-    const texture = useTexture(land);
-
-    console.log(pointsRef)
-
     return (
         <>
-            <mesh
-                {...props}
-                ref={meshRef}
-                scale={1}
-
-
-            >
-                <sphereGeometry args={[3, 64, 32]} />
-                <meshStandardMaterial 
-                color='black' 
-                // map={texture}
-                 />
-            </mesh>
-            <points ref={pointsRef} >
-                <bufferGeometry />
-                <pointsMaterial  size={0.01} depthTest={false} />
-            </points>
+            <canvas
+                ref={canvasRef}
+                className="w-[1000px] h-[1000px] max-w-full aspect-square"
+            />
         </>
     );
 }
 
+export default Globe

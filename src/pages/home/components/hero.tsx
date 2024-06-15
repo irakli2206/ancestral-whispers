@@ -28,6 +28,7 @@ import DNASteps from './dna-steps';
 import ReflectionSteps from './reflection-steps';
 import ReconstructionSteps from './reconstruction-steps';
 import CartographySteps from './cartography-steps';
+import { RisingStars } from '@/components/rising-stars';
 
 
 type ToggleT = 'dna' | 'reflection' | 'reconstructions' | 'cartography'
@@ -38,14 +39,18 @@ const Hero = () => {
 
     return (
         <>
+            <div className="w-full h-[500px] absolute overflow-hidden">
+                <RisingStars numberOfStars={200} opacity='low' />
+            </div>
             <section className='container max-w-6xl mx-auto flex flex-col gap-12 items-center py-20 px-6 relative min-h-screen '>
+
                 <header className='max-w-3xl text-center flex items-center flex-col gap-4'>
                     <h1 className=' text-7xl [&>*]:font-display  [text-shadow:0_2px_16px_rgba(174,207,242,.44)]'><span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-500 from-10% to-55% to-white'>Uncover your past with</span> <span className='bg-clip-text text-transparent bg-gradient-to-b from-zinc-400 from-10% to-55% to-white' >Ancestral Whispers</span></h1>
                     <p className='text-muted-foreground text-lg '>Ancestral Whispers provides universal and all-encompassing DNA research. Explore your heritage using DNA, maps, charts, historical data and more.</p>
                 </header>
 
                 <main className="flex gap-4">
-                    <Button variant={'outline'} size='lg' className='rounded-full px-10 hover:shadow-inner-button transition hover:bg-background hover:border-zinc-700' >Get In Touch </Button>
+                    <Button variant={'outline'} className='rounded-lg px-10 hover:shadow-inner-button transition hover:bg-background hover:border-zinc-700' >Get In Touch </Button>
                     <Button variant={'link'} size='lg' className='rounded-full gap-2 text-muted-foreground hover:text-primary transition !no-underline group ' >Explore <CgArrowLongRight size={20} className='group-hover:text-primary group-hover:translate-x-1 transition-transform ' /></Button>
                 </main>
 
