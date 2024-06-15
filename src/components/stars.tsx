@@ -104,23 +104,30 @@ export const BlinkingStars = ({ numberOfStars = 100, opacity = 'high' }: Props) 
                 <motion.span
                     key={`star-${i}`}
                     animate={{
-                        opacity: [randomOpacity(), randomOpacity() * 3, randomOpacity() * 3, randomOpacity()]  ,
-                        scale: [1, randomOpacity() * 2, randomOpacity() * 2, 1],
+                        opacity: [0, randomOpacity() / 2, 1, randomOpacity()]  ,
+                        scale: [1, i % 5 === 0 ? 2.5 : 1],
+                       
                     }}
                     transition={{
-                        duration: random() * 10 + 3,
+                        duration: i % 5 === 0 ? random() * 4 + 2 : 2,
+                        delay: random() * 2,
                         repeat: Infinity,
                         ease: "linear",
-                        times: [0.05, 0.1, 0.8, 0.9]
+                        repeatType: 'mirror',
+                        
+                    }}
+                    initial={{
+                        width: 2,
+                        height: 2,
+                        scale: 1,
+                        borderRadius: '50%'
                     }}
                     style={{
                         position: "absolute",
                         top: `${random() * 100}%`,
                         left: `${random() * 100}%`,
-                        width: `2px`,
-                        height: `2px`,
+                        
                         backgroundColor: "white",
-                        borderRadius: "50%",
                         zIndex: 1,
                     }}
                     className="inline-block"

@@ -36,7 +36,7 @@ const Navbar = () => {
                 </div>
 
 
-                <Button variant={'outline'} className='hover:shadow-inner-button transition hover:bg-background rounded-full hover:border-zinc-700'>Get In Touch</Button>
+                <Button variant={'primary'} className='rounded-full'>Get In Touch</Button>
             </section>
 
         </nav>

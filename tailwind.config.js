@@ -10,7 +10,8 @@ module.exports = {
   prefix: "",
   theme: {
     boxShadow: {
-      "inner-button": "inset 0 0 10px rgba(255, 255, 255, 0.075)"
+      "inner-button": "inset 0 -6px 16px rgba(255, 255, 255, 0.05)",
+      "inner-button-hover": "inset 0 -2px 16px rgba(255, 255, 255, 0.1)"
     },
     container: {
       center: true,
