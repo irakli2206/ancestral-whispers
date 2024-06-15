@@ -98,7 +98,7 @@ const Hero = () => {
 
 
 
-            <img alt="Light ray background" decoding="async" data-nimg="1" className="pointer-events-none absolute -top-20 left-0 right-0 z-0 mx-auto hidden h-full w-full select-none md:block"
+            <img alt="Light ray background" decoding="async" data-nimg="1" className="pointer-events-none absolute -top-20 left-0 right-0 z-0 mx-auto  h-full w-full select-none "
                 src={"https://resend.com/_next/image?url=%2Fstatic%2Flanding-page%2Fbghero.png&w=1080&q=75"}
             />
         </>
