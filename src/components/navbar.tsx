@@ -28,6 +28,19 @@ import {
 import { cn } from '@/lib/utils';
 import { CgArrowLongRight } from "react-icons/cg";
 import { GoChevronRight } from "react-icons/go";
+import { LiaSkullSolid } from "react-icons/lia";
+import { IoSkullOutline } from "react-icons/io5";
+import { TbDna2 } from "react-icons/tb";
+import { IoMapOutline } from "react-icons/io5";
+import { PiSwapLight } from "react-icons/pi";
+import { FaAtlas } from "react-icons/fa";
+import { CiMap } from "react-icons/ci";
+import { Map } from 'lucide-react';
+import { LiaAtlasSolid } from "react-icons/lia";
+import { PiBookDuotone } from "react-icons/pi";
+import { BiSolidMapAlt } from "react-icons/bi";
+
+
 
 type NavbarT = NavbarItemT[]
 
@@ -41,6 +54,7 @@ type NavbarChildrenT = {
     title: string;
     path: string;
     description: string
+    icon?: JSX.Element
     isButton?: boolean
 }
 
@@ -51,22 +65,25 @@ const NAVBAR_ITEMS: NavbarT = [
             {
                 title: 'Reconstructions',
                 description: 'A collection of reconstructions by AW',
-                path: '/reconstructions'
+                path: '/reconstructions',
+                icon: <LiaSkullSolid   size={28} stroke='yellow' color='yellow' fill='red' className='mask-icon text-zinc-400 fill-zinc-600' />
             },
             {
                 title: 'Maps',
                 description: 'A collection of maps by AW',
-                path: '/maps'
+                path: '/maps',
+                icon: <Map  size={28} strokeWidth={1.2} className='mask-icon text-zinc-400 fill-zinc-600' />
             },
             {
                 title: 'Y-DNA Atlas',
                 description: 'Map of ethnicities by Y-DNA distribution',
-                path: '/ydna-atlas'
+                path: '/ydna-atlas',
+                icon: <PiBookDuotone strokeWidth={1} size={28} stroke='yellow' color='yellow' fill='red'   />
             },
             {
                 title: 'Request commission',
                 description: "Can't find what you're looking for? We'll see how we can help",
-                path: '/contact',
+                path: '/pricing',
                 isButton: true
             },
         ]
@@ -76,18 +93,18 @@ const NAVBAR_ITEMS: NavbarT = [
         children: [
             {
                 title: 'DNA Research',
-                description: 'A collection of reconstructions by AW',
-                path: '/reconstructions'
+                description: 'Transform your DNA test into personalized heritage results',
+                path: '/dna-research'
             },
             {
                 title: 'Reflection',
-                description: 'A collection of maps by AW',
-                path: '/maps'
+                description: 'AI-powered tool enabling us to see how you would look as an ancient tribesman',
+                path: '/reflection'
             },
             {
-                title: 'Request commission',
-                description: "Can't find what you're looking for? We'll see how we can help",
-                path: '/contact',
+                title: 'See pricing',
+                description: "Curious to purchase our services? Check out the pricing section",
+                path: '/pricing',
                 isButton: true
             },
         ]
@@ -95,6 +112,10 @@ const NAVBAR_ITEMS: NavbarT = [
     {
         title: 'Blog',
         path: '/blog'
+    },
+    {
+        title: 'Pricing',
+        path: '/pricing'
     }
 ]
 
@@ -144,14 +165,14 @@ const Navbar = () => {
                                         <NavigationMenuContent className='relative'  >
                                             {/* <div className="absolute h-full w-full top-0 left-0 "></div> */}
                                             <ul className="grid gap-2 [&>*]:rounded-none p-2 md:w-[400px] lg:w-[500px] relative z-50 ">
-                                                {children.map(({ description, path, title, isButton }) =>
+                                                {children.map(({ description, path, title, isButton, icon }) =>
                                                     <>
                                                         {isButton ?
                                                             <ListButton href={path} title={title} className=' '  >
                                                                 <p className='text-xs'>{description}</p>
                                                             </ListButton>
                                                             :
-                                                            <ListItem href={path} title={title}>
+                                                            <ListItem href={path} title={title} icon={icon}>
                                                                 {description}
                                                             </ListItem>
                                                         }
@@ -222,22 +243,23 @@ const ListItem = React.forwardRef<
                 <a
                     ref={ref}
                     className={cn(
-                        "group flex justify-between items-center select-none  rounded-md p-3 leading-none no-underline outline-none transition  focus:bg-accent/50 ",
+                        "group opacity-70 hover:opacity-100 flex gap-4 items-center select-none  rounded-md p-3 leading-none no-underline outline-none transition  focus:bg-accent/50 ",
                         className
                     )}
                     {...props}
                 >
+                    {/* {props.icon} */}
                     <div className='flex flex-col space-y-1 transition '>
                         <div className="flex gap-1.5 items-center text-sm font-medium ">
-                            <p className='text-primary/80 group-hover:text-primary'>{title}</p>
+                            <p className=' '>{title}</p>
                             <GoChevronRight size={12} className='transition  opacity-0 group-hover:!opacity-100 group-hover:translate-x-1' />
                         </div>
-                        <p className="  text-xs  text-muted-foreground/80 group-hover:text-muted-foreground ">
+                        <p className="  text-xs text-muted-foreground ">
                             {children}
                         </p>
                     </div>
 
-                    {props.icon}
+
 
                 </a>
             </NavigationMenuLink>
@@ -256,16 +278,16 @@ const ListButton = React.forwardRef<
                 <a
                     ref={ref}
                     className={cn(
-                        "group bg-zinc-900 hover:bg-zinc-900/85 border flex justify-between items-center select-none  rounded-md p-3 leading-none no-underline outline-none transition-colors   hover:text-accent-foreground focus:bg-accent/50 focus:text-accent-foreground",
+                        "group opacity-70 hover:opacity-100 bg-zinc-900  border flex justify-between items-center select-none  rounded-md p-3 leading-none no-underline outline-none transition-colors   hover:text-accent-foreground focus:bg-accent/50 focus:text-accent-foreground",
                         className
                     )}
                     {...props}
                 >
                     <div className='flex flex-col space-y-1'>
-                        <div className="flex gap-1.5 items-end text-sm font-medium leading-none text-primary/80 group-hover:text-primary">
+                        <div className="flex gap-1.5 items-end text-sm font-medium leading-none ">
                             <p>{title}</p>
                         </div>
-                        <p className="line-clamp-2 text-xs leading-snug text-muted-foreground/80 group-hover:text-muted-foreground">
+                        <p className="line-clamp-2 text-xs leading-snug text-muted-foreground">
                             {children}
                         </p>
                     </div>
