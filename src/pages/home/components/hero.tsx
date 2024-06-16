@@ -84,7 +84,7 @@ const Hero = () => {
                         </ToggleGroup>
                     </header>
 
-                    <footer className='h-full mt-16 flex flex-col'>
+                    <footer className='h-full mt-12 flex flex-col'>
                         {selectedToggle === 'dna' && <DNASteps />}
                         {selectedToggle === 'reflection' && <ReflectionSteps />}
                         {selectedToggle === 'reconstructions' && <ReconstructionSteps />}

@@ -12,14 +12,14 @@ const ReconstructionSteps = () => {
             <div className='flex  flex-col md:flex-row gap-2 md:gap-0'>
                 <section className=" h-full  flex flex-col gap-2 px-4 py-2 flex-1">
                     {/* <img src={Skull} className='h-48 w-auto object-contain object-left' /> */}
-                    <h1 className='font-medium text-lg'>Choose the desired skull</h1>
-                    <p className='text-muted-foreground'>If you do not have any particular skull in mind, we can assist you with the selection process.</p>
+                    <h1 className='font-medium '>Choose the desired skull</h1>
+                    <p className='text-muted-foreground text-sm'>If you do not have any particular skull in mind, we can assist you with the selection process.</p>
                 </section>
 
                 <section className="hero-step relative h-full  flex flex-col gap-2 px-4 py-2  flex-1">
                     {/* <img src={Reflection2} className='h-48 w-auto object-contain object-left' /> */}
-                    <h1 className='font-medium text-lg'>Receive results</h1>
-                    <p className='text-muted-foreground'>The reconstruction process is based on multiple peer-reviewed scientific papers. <Link to='/blog/methodology' className='underline text-primary'>Read more about the process</Link></p>
+                    <h1 className='font-medium '>Receive results</h1>
+                    <p className='text-muted-foreground text-sm'>The reconstruction process is based on multiple peer-reviewed scientific papers. <Link to='/blog/methodology' className='underline text-primary'>Read more about the process</Link></p>
                 </section>
 
             </div>

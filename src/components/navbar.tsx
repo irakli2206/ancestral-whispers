@@ -95,12 +95,13 @@ const Navbar = () => {
             <div className="absolute h-full w-full backdrop-blur-sm z-10"></div>
 
             <section className="max-w-6xl container hidden sm:flex justify-between items-center py-2.5 z-20">
-                <FiCodesandbox size={36} strokeWidth={1} />
-
+                 
+                    <Link to='/'>
+                        <FiCodesandbox size={36} strokeWidth={1} />
+                    </Link>
+                
 
                 <NavigationMenu  >
-
-
                     <NavigationMenuList className='flex gap-8 text-[13px] font-medium '>
 
                         <NavigationMenuItem >

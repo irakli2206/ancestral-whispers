@@ -10,18 +10,18 @@ const CartographySteps = () => {
             <div className='flex  flex-col md:flex-row gap-2 md:gap-0'>
                 <section className=" h-full  flex flex-col gap-2 px-4 py-2 flex-1">
                     {/* <img src={Skull} className='h-48 w-auto object-contain object-left' /> */}
-                    <h1 className='font-medium text-lg'>Describe the concept</h1>
-                    <p className='text-muted-foreground'>Tell us what type of map you have in mind, the more detail you provide the better.</p>
+                    <h1 className='font-medium '>Describe the concept</h1>
+                    <p className='text-muted-foreground text-sm'>Tell us what type of map you have in mind, the more detail you provide the better.</p>
                 </section>
                 <section className="hero-step relative h-full  flex flex-col gap-2 px-4 py-2  flex-1">
                     {/* <img src={Reflection2} className='h-48 w-auto object-contain object-left' /> */}
-                    <h1 className='font-medium text-lg'>Data collection</h1>
-                    <p className='text-muted-foreground'>Depending on your request, we may need to programmatically collect data and create a database for a GIS map.</p>
+                    <h1 className='font-medium '>Data collection</h1>
+                    <p className='text-muted-foreground text-sm'>Depending on your request, we may need to programmatically collect data and create a database for a GIS map.</p>
                 </section>
                 <section className="hero-step relative h-full  flex flex-col gap-2 px-4 py-2  flex-1">
                     {/* <img src={Reflection2} className='h-48 w-auto object-contain object-left' /> */}
-                    <h1 className='font-medium text-lg'>Visualizing</h1>
-                    <p className='text-muted-foreground'>Depending on the project we will use tools such as Inkarnate, PS and QGIS. Length of the project varies greatly.</p>
+                    <h1 className='font-medium '>Visualizing</h1>
+                    <p className='text-muted-foreground text-sm'>Depending on the project we will use tools such as Inkarnate, PS and QGIS. Length of the project varies greatly.</p>
                 </section>
 
             </div>
