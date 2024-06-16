@@ -29,44 +29,77 @@ import { cn } from '@/lib/utils';
 import { CgArrowLongRight } from "react-icons/cg";
 import { GoChevronRight } from "react-icons/go";
 
+type NavbarT = NavbarItemT[]
 
-const components: { title: string; href: string; description: string }[] = [
+type NavbarItemT = {
+    title: string;
+    path?: string;
+    children?: NavbarChildrenT[]
+}
+
+type NavbarChildrenT = {
+    title: string;
+    path: string;
+    description: string
+    isButton?: boolean
+}
+
+const NAVBAR_ITEMS: NavbarT = [
     {
-        title: "Alert Dialog",
-        href: "/docs/primitives/alert-dialog",
-        description:
-            "A modal dialog that interrupts the user with important content and expects a response.",
+        title: 'Projects',
+        children: [
+            {
+                title: 'Reconstructions',
+                description: 'A collection of reconstructions by AW',
+                path: '/reconstructions'
+            },
+            {
+                title: 'Maps',
+                description: 'A collection of maps by AW',
+                path: '/maps'
+            },
+            {
+                title: 'Y-DNA Atlas',
+                description: 'Map of ethnicities by Y-DNA distribution',
+                path: '/ydna-atlas'
+            },
+            {
+                title: 'Request commission',
+                description: "Can't find what you're looking for? We'll see how we can help",
+                path: '/contact',
+                isButton: true
+            },
+        ]
     },
     {
-        title: "Hover Card",
-        href: "/docs/primitives/hover-card",
-        description:
-            "For sighted users to preview content available behind a link.",
+        title: 'Services',
+        children: [
+            {
+                title: 'DNA Research',
+                description: 'A collection of reconstructions by AW',
+                path: '/reconstructions'
+            },
+            {
+                title: 'Reflection',
+                description: 'A collection of maps by AW',
+                path: '/maps'
+            },
+            {
+                title: 'Request commission',
+                description: "Can't find what you're looking for? We'll see how we can help",
+                path: '/contact',
+                isButton: true
+            },
+        ]
     },
     {
-        title: "Progress",
-        href: "/docs/primitives/progress",
-        description:
-            "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
-    },
-    {
-        title: "Scroll-area",
-        href: "/docs/primitives/scroll-area",
-        description: "Visually or semantically separates content.",
-    },
-    {
-        title: "Tabs",
-        href: "/docs/primitives/tabs",
-        description:
-            "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-    },
-    {
-        title: "Tooltip",
-        href: "/docs/primitives/tooltip",
-        description:
-            "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-    },
+        title: 'Blog',
+        path: '/blog'
+    }
 ]
+
+
+
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -95,67 +128,47 @@ const Navbar = () => {
             <div className="absolute h-full w-full backdrop-blur-sm z-10"></div>
 
             <section className="max-w-6xl container hidden sm:flex justify-between items-center py-2.5 z-20">
-                 
-                    <Link to='/'>
-                        <FiCodesandbox size={36} strokeWidth={1} />
-                    </Link>
-                
+
+                <Link to='/'>
+                    <FiCodesandbox size={36} strokeWidth={1} />
+                </Link>
+
 
                 <NavigationMenu  >
                     <NavigationMenuList className='flex gap-8 text-[13px] font-medium '>
+                        {NAVBAR_ITEMS.map(({ title, children, path }) =>
+                            <NavigationMenuItem >
+                                {children ?
+                                    <>
+                                        <NavigationMenuTrigger className='text-[13px]'>{title}</NavigationMenuTrigger>
+                                        <NavigationMenuContent className='relative'  >
+                                            {/* <div className="absolute h-full w-full top-0 left-0 "></div> */}
+                                            <ul className="grid gap-2 [&>*]:rounded-none p-2 md:w-[400px] lg:w-[500px] relative z-50 ">
+                                                {children.map(({ description, path, title, isButton }) =>
+                                                    <>
+                                                        {isButton ?
+                                                            <ListButton href={path} title={title} className=' '  >
+                                                                <p className='text-xs'>{description}</p>
+                                                            </ListButton>
+                                                            :
+                                                            <ListItem href={path} title={title}>
+                                                                {description}
+                                                            </ListItem>
+                                                        }
+                                                    </>
 
-                        <NavigationMenuItem >
-                            <NavigationMenuTrigger className='text-[13px]'>Projects</NavigationMenuTrigger>
-                            <NavigationMenuContent className='relative'  >
-                                <div className="absolute h-full w-full top-0 left-0 "></div>
-                                <ul className="grid gap-2 [&>*]:rounded-none p-2 md:w-[400px] lg:w-[500px] relative z-50 ">
+                                                )}
+                                            </ul>
+                                        </NavigationMenuContent>
+                                    </>
+                                    :
+                                    <Link to={path!}>
+                                        {title}
+                                    </Link>
+                                }
+                            </NavigationMenuItem>
+                        )}
 
-                                    <ListItem href="/docs" title="Introduction">
-                                        Re-usable components built using Radix UI and Tailwind CSS.
-                                    </ListItem>
-                                    <ListItem href="/docs/installation" title="Installation">
-                                        How to install dependencies and structure your app.
-                                    </ListItem>
-                                    <ListItem href="/docs/primitives/typography" title="Typography">
-                                        Styles for headings, paragraphs, lists...etc
-                                    </ListItem>
-
-                                    <ListButton href="/contact" title="Request commission" className=' '  >
-                                        <p className='text-xs'>Can't find what you're looking for? We'll see how we can help!</p>
-                                    </ListButton>
-                                </ul>
-                            </NavigationMenuContent>
-                        </NavigationMenuItem>
-
-                        <NavigationMenuItem>
-                            <NavigationMenuTrigger className='text-[13px]'>Services</NavigationMenuTrigger>
-                            <NavigationMenuContent  >
-                                <ul className="grid gap-2 [&>*]:rounded-none p-2 md:w-[400px] lg:w-[500px] ">
-
-                                    <ListItem href="/docs" title="Introduction">
-                                        Re-usable components built using Radix UI and Tailwind CSS.
-                                    </ListItem>
-                                    <ListItem href="/docs/installation" title="Installation">
-                                        How to install dependencies and structure your app.
-                                    </ListItem>
-                                    <ListItem href="/docs/primitives/typography" title="Typography">
-                                        Styles for headings, paragraphs, lists...etc
-                                    </ListItem>
-
-                                </ul>
-                            </NavigationMenuContent>
-                        </NavigationMenuItem>
-
-                        <NavigationMenuItem>
-                            <Link to="/docs" >
-                                Blog
-                            </Link>
-                        </NavigationMenuItem>
-                        <NavigationMenuItem>
-                            <Link to="/docs"    >
-                                Blog
-                            </Link>
-                        </NavigationMenuItem>
 
                     </NavigationMenuList>
 
@@ -171,11 +184,11 @@ const Navbar = () => {
 
             </section>
 
-            <section className="max-w-6xl container flex sm:hidden justify-between items-center py-2.5">
+            <section className="max-w-6xl container flex sm:hidden justify-between items-center py-2.5 z-20">
                 <FiCodesandbox size={36} strokeWidth={1} />
                 <Sheet>
                     <SheetTrigger asChild>
-                        <Button variant="outline">Open</Button>
+                        <Button variant="outline">Menu</Button>
                     </SheetTrigger>
                     <SheetContent className='z-[9999] bg-background-black'>
 

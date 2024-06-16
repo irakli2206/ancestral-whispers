@@ -109,7 +109,7 @@ export const BlinkingStars = ({ numberOfStars = 100, opacity = 'high' }: Props) 
                        
                     }}
                     transition={{
-                        duration: i % 5 === 0 ? random() * 4 + 2 : 2,
+                        duration: i % 5 === 0 ? random() * 4 + 2 : 1,
                         delay: random() * 2,
                         repeat: Infinity,
                         ease: "linear",
